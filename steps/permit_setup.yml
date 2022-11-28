@@ -1,8 +1,8 @@
-id: funneldrop_analyze_data
+id: permit_setup
 learningObjectives: 
-- Analyzing log data 
+- Join Permit and learn how to embed authorization in your application
 hints:
-- Try to find what all the users that drop in the funnel have in common
+- None. Have fun!
 startFlow:
   do:
   - actionId: bot_message
