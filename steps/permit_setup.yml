@@ -25,7 +25,7 @@ trigger:
       - conditionId: text_match_regex
         params:
           text: "${userMessageText}"
-          regex: mobile|android|ios|iphobe|non web
+          regex: done|finished|completed|complete
           flags: i
       then:
         do:
@@ -33,7 +33,7 @@ trigger:
           params:
             person: keen
             messages:
-            - text: Good catch! I'll let the support team know.
+            - text: "Great! "
               delay: 1300
         - actionId: finish_step
       else:
