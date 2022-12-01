@@ -1,0 +1,64 @@
+id: permit_authz_guide
+learningObjectives:
+  - Learn about Authorization
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: keen
+        messages:
+          - text: "Creating an account was your new beginning into the world of permissions. Congratulations!"
+            delay: 2000
+          - text: "I'd love to give you a quick insight into what Authorization is, why it's important, and how it differs from Authentication."
+            delay: 2000
+          - text: "Have you ever heard of Authorization, or even used it?"
+            delay: 3500
+trigger:
+  type: user_message
+  params:
+    person: keen
+  flowNode:
+    if:
+      conditions:
+        - conditionId: text_match_regex
+          params:
+            text: "${userMessageText}"
+            regex: yes|i have|yup|ya|yeh|
+            flags: i
+      then:
+        do:
+          - actionId: bot_message
+            params:
+              person: keen
+              messages:
+                - text: "Awesome, let me still give you a quick intro."
+                  delay: 1300
+                - text: "No worries, I'm here to explain it to you!."
+                  delay: 3500
+                - text: "Authorization inside any system or app is the process of giving the right individuals the right roles, and permissions of what they can and cannot do."
+                  delay: 2500
+                - text: "Authorization, or AuthZ, is important as it gives you much more granular security inside your application."
+                  delay: 3000
+                - text: "The difference between Authorization and Authentication is fairly significant (even though the both sound very similar and are often the point of confusion."
+                  delay: 4000
+                - text: "**Authentication** is making sure the user is who they say they are, and **Authorization** is making sure the identified used has the right permissions to do specific actions!"
+                  delay: 2000
+                - text: "I hope that makes sense! Now, let's play around with Permit and setup a simple running application!"
+          - actionId: finish_step
+      else:
+        do:
+          - actionId: bot_message
+            params:
+              person: keen
+              messages:
+                - text: "No worries, I'm here to explain it to you!."
+                  delay: 3500
+                - text: "Authorization inside any system or app is the process of giving the right individuals the right roles, and permissions of what they can and cannot do."
+                  delay: 2500
+                - text: "Authorization, or AuthZ, is important as it gives you much more granular security inside your application."
+                  delay: 3000
+                - text: "The difference between Authorization and Authentication is fairly significant (even though the both sound very similar and are often the point of confusion."
+                  delay: 4000
+                - text: "**Authentication** is making sure the user is who they say they are, and **Authorization** is making sure the identified used has the right permissions to do specific actions!"
+                  delay: 2000
+                - text: "I hope that makes sense! Now, let's play around with Permit and setup a simple running application!"
