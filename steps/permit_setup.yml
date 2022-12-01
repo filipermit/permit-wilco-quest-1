@@ -33,7 +33,7 @@ trigger:
             params:
               person: keen
               messages:
-                - text: "Great!"
+                - text: "Well done!"
                   delay: 1300
           - actionId: finish_step
       else:

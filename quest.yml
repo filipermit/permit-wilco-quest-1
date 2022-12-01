@@ -5,6 +5,7 @@ summary: "Learn how to use Permit to manage Authorization within your app in jus
 level: beginner
 steps:
   - permit_setup
+  - permit_authz_guide
 duration: 1
 skills:
   - frontend
