@@ -1,15 +1,15 @@
 id: learn_permit_authorization
 title: Never Build Permissions Again
-description: "Authorization and access-control is hard. Having to build it yourself is even harder. Not anymore! Permit offers a full-stack authorization solution, where with these use of a no-code interaface and a few lines of code, you can manage all the users and their roles in your system with a few clicks."
-summary: "Learn how to use permit from policy creation which includes roles, resources and actions to physical embedding of enforcement points within your application, making authorization easy and fast."
+description: "Authorization and access-control are hard, and building them yourself is even harder. Permit offers a Full-Stack application level Authorization solution, providing a no-code UI to manage your roles and permissions, allowing you to scale, change and update policies effortlessly in a matter of minutes."
+summary: "Learn how to use Permit to manage Authorization within your app in just a few clicks."
 level: beginner
 steps:
-- permit_setup
+  - permit_setup
 duration: 1.5
 skills:
-- frontend
-- authorization
-- github
-- communication
+  - frontend
+  - authorization
+  - github
+  - communication
 questDependency: docker_localsetup
 slogan: Never Build Permissions Again
