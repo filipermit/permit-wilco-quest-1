@@ -1,0 +1,46 @@
+id: permit_pdp_deployment
+learningObjectives:
+  - Deploy the Policy Decision Point
+hints:
+  - None! This step is easy!
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: keen
+        messages:
+          - text: "Hi - it's great to have you on the team. My name is Keen and I will be guiding you through the Permit setup process."
+            delay: 2000
+          - text: "I want to make sure your onboarding with Permit goes as smoothly as possible. "
+            delay: 2000
+          - text: "To get started, I need you to setup an account. Please head over to [app.permit.io](https://app.permit.io). Once there, log in with your preferred account, **skip** the onboarding, and come back to me, letting me know you are done."
+            delay: 3500
+trigger:
+  type: user_message
+  params:
+    person: keen
+  flowNode:
+    if:
+      conditions:
+        - conditionId: text_match_regex
+          params:
+            text: "${userMessageText}"
+            regex: done|finished|completed|complete
+            flags: i
+      then:
+        do:
+          - actionId: bot_message
+            params:
+              person: keen
+              messages:
+                - text: "Great!"
+                  delay: 1300
+          - actionId: finish_step
+      else:
+        do:
+          - actionId: bot_message
+            params:
+              person: keen
+              messages:
+                - text: Try again! I'm sure you'll figure this out.
+                  delay: 2500

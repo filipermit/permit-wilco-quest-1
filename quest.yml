@@ -6,6 +6,7 @@ level: beginner
 steps:
   - permit_setup
   - permit_authz_guide
+  - permit_get_api_key
 duration: 1
 skills:
   - frontend

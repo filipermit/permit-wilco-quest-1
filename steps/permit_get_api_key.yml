@@ -1,0 +1,46 @@
+id: permit_get_api_key
+learningObjectives:
+  - Fetching the user Secret Key
+hints:
+  - Click on your profile picture inside th permit dashboard and copy they key.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: keen
+        messages:
+          - text: "In order to get Permit set-up for you and add you to the workspace, I will need you to copy your **SDK Secret Key** and send it my way."
+            delay: 2000
+          - text: "Once you are on the Permit app, just click on your profile picture in the top right, and copy the key."
+            delay: 2000
+          - text: "Please paste it in the chat once you have it :o)"
+            delay: 3500
+trigger:
+  type: user_message
+  params:
+    person: keen
+  flowNode:
+    if:
+      conditions:
+        - conditionId: text_match_regex
+          params:
+            text: "${userMessageText}"
+            regex: "permit_key_*"
+            flags: i
+      then:
+        do:
+          - actionId: bot_message
+            params:
+              person: keen
+              messages:
+                - text: "Amazing, thanks for that. Let me get everything set up for you."
+                  delay: 1300
+          - actionId: finish_step
+      else:
+        do:
+          - actionId: bot_message
+            params:
+              person: keen
+              messages:
+                - text: This looks like it's not the key. You can do it, I believe in you!
+                  delay: 2500
