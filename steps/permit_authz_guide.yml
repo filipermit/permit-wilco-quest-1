@@ -23,7 +23,7 @@ trigger:
         - conditionId: text_match_regex
           params:
             text: "${userMessageText}"
-            regex: yes|i have|yup|ya|yeh|
+            regex: *
             flags: i
       then:
         do:
@@ -31,7 +31,7 @@ trigger:
             params:
               person: keen
               messages:
-                - text: "Awesome, let me still give you a quick intro."
+                - text: "Cool - here is a little from me!"
                   delay: 3500
                 - text: "Authorization inside any system or app is the process of giving the right individuals the right roles, and permissions of what they can and cannot do."
                   delay: 2500
@@ -43,20 +43,3 @@ trigger:
                   delay: 2000
                 - text: "I hope that makes sense! Now, let's play around with Permit and setup a simple running application!"
           - actionId: finish_step
-      else:
-        do:
-          - actionId: bot_message
-            params:
-              person: keen
-              messages:
-                - text: "No worries, I'm here to explain it to you!."
-                  delay: 3500
-                - text: "Authorization inside any system or app is the process of giving the right individuals the right roles, and permissions of what they can and cannot do."
-                  delay: 2500
-                - text: "Authorization, or AuthZ, is important as it gives you much more granular security inside your application."
-                  delay: 3000
-                - text: "The difference between Authorization and Authentication is fairly significant (even though the both sound very similar and are often the point of confusion."
-                  delay: 4000
-                - text: "**Authentication** is making sure the user is who they say they are, and **Authorization** is making sure the identified used has the right permissions to do specific actions!"
-                  delay: 2000
-                - text: "I hope that makes sense! Now, let's play around with Permit and setup a simple running application!"
