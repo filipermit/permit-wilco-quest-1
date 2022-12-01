@@ -43,32 +43,29 @@ trigger:
                   delay: 3000
                 - text: "I hope that makes sense! Are you ready to get started?"
           - actionId: finish_step
-trigger:
-  type: user_message
-  params:
-    person: keen
-  flowNode:
-    if:
-      conditions:
-        - conditionId: text_match_regex
-          params:
-            text: "${userMessageText}"
-            regex: "yeah|yea|yes|y*|mhm|yup|lets go|sure|ofc|of course"
-            flags: i
-      then:
+        then: 
         do:
-          - actionId: bot_message
-            params:
-              person: keen
-              messages:
-                - text: "Yay! Let's play around with Permit and setup a simple running application!"
-                  delay: 1300
-          - actionId: finish_step
-      else:
-        do:
-          - actionId: bot_message
-            params:
-              person: keen
-              messages:
-                - text: This looks like it's not the key. You can do it, I believe in you!
-                  delay: 2500
+          if:
+            conditions:
+              - conditionId: text_match_regex
+                params:
+                  text: "${userMessageText}"
+                  regex: "yeah|yea|yes|y*|mhm|yup|lets go|sure|ofc|of course"
+                  flags: i
+            then:
+              do:
+                - actionId: bot_message
+                  params:
+                    person: keen
+                    messages:
+                      - text: "Yay! Let's play around with Permit and setup a simple running application!"
+                        delay: 1300
+                - actionId: finish_step
+            else:
+              do:
+                - actionId: bot_message
+                  params:
+                    person: keen
+                    messages:
+                      - text: This looks like it's not the key. You can do it, I believe in you!
+                        delay: 2500
