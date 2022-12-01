@@ -13,7 +13,7 @@ startFlow:
             delay: 2000
           - text: "Once you are on the Permit app, just click on your profile picture in the top right, and copy the key."
             delay: 2000
-          - text: "Please paste it in the chat once you have it :)"
+          - text: "Please paste it in the chat once you have it 😊"
             delay: 3500
 trigger:
   type: user_message
