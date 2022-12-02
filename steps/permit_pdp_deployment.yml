@@ -9,7 +9,6 @@ startFlow:
       params:
         person: keen
         messages:
-            delay: 5000
           - text: "All looks good. You should now have access to the workspace for our permissions."
             delay: 3000
           - text: "Before we move further, I will need you to download and run the pdp for me in the terminal."
