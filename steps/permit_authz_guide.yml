@@ -52,7 +52,7 @@ trigger:
               messages:
                 - text: "Don't worry, I'll explain it to you."
                   delay: 3000
-                  - text: "Authorization inside any system or app is the process of giving the right individuals the right roles, and permissions of what they can and cannot do."
+                - text: "Authorization inside any system or app is the process of giving the right individuals the right roles, and permissions of what they can and cannot do."
                   delay: 3500
                 - text: "Authorization, or AuthZ, is important as it gives you much more granular security inside your application."
                   delay: 3500
