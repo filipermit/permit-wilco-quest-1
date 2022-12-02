@@ -2,19 +2,28 @@ id: permit_pdp_deployment
 learningObjectives:
   - Deploy the Policy Decision Point
 hints:
-  - A whole guide how to deploy the PDP is available [here](https://docs.permit.io/quickstart)
+  - A whole guide how to deploy the PDP is available [here](https://docs.permit.io/tutorials/quickstart)
 startFlow:
   do:
     - actionId: bot_message
       params:
         person: keen
         messages:
-          - text: "Hi - it's great to have you on the team. My name is Keen and I will be guiding you through the Permit setup process."
-            delay: 2000
-          - text: "I want to make sure your onboarding with Permit goes as smoothly as possible. "
-            delay: 2000
-          - text: "To get started, I need you to setup an account. Please head over to [app.permit.io](https://app.permit.io). Once there, log in with your preferred account, **skip** the onboarding, and come back to me, letting me know you are done."
+            delay: 5000
+          - text: "All looks good. You should now have access to the workspace for our permissions."
+            delay: 3000
+          - text: "Before we move further, I will need you to download and run the pdp for me in the terminal."
+            delay: 3000
+          - text: "Run the following two commands in the terminal:"
             delay: 3500
+          - text: "`docker pull permitio/pdp-v2:latest`"
+            delay: 3500
+          - text: "`docker run -p 7766:7000 --env PDP_API_KEY=<YOUR_API_KEY> permitio/pdp-v2:latest`"
+            delay: 3500
+          - text: "Remember to replace the `<YOUR_API_KEY>" with your own."
+            delay: 3000
+          - text: "Let me know when everything is running for you."
+            delay: 3000
 trigger:
   type: user_message
   params:
@@ -33,7 +42,7 @@ trigger:
             params:
               person: keen
               messages:
-                - text: "Great!"
+                - text: "Hurray! You are doing a great job. That's your Policy Decision Point running locally for you."
                   delay: 1300
           - actionId: finish_step
       else:
