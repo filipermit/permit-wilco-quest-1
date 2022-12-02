@@ -19,7 +19,7 @@ startFlow:
             delay: 3500
           - text: "`docker run -p 7766:7000 --env PDP_API_KEY=<YOUR_API_KEY> permitio/pdp-v2:latest`"
             delay: 3500
-          - text: "Remember to replace the `<YOUR_API_KEY>" with your own."
+          - text: "Remember to replace the `<YOUR_API_KEY>` with your own."
             delay: 3000
           - text: "Let me know when everything is running for you."
             delay: 3000
