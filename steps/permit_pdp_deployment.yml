@@ -2,7 +2,7 @@ id: permit_pdp_deployment
 learningObjectives:
   - Deploy the Policy Decision Point
 hints:
-  - None! This step is easy!
+  - A whole guide how to deploy the PDP is available [here](https://docs.permit.io/quickstart)
 startFlow:
   do:
     - actionId: bot_message
