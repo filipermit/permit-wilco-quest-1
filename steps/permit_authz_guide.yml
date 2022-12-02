@@ -25,22 +25,21 @@ trigger:
             text: "${userMessageText}"
             regex: "*"
             flags: i
-        then:
-          do:
-            - actionId: bot_message
-              params:
-                person: keen
-                messages:
-                  - text: "Cool - here is a little from me!"
-                    delay: 3500
-                  - text: "Authorization inside any system or app is the process of giving the right individuals the right roles, and permissions of what they can and cannot do."
-                    delay: 3500
-                  - text: "Authorization, or AuthZ, is important as it gives you much more granular security inside your application."
-                    delay: 3500
-                  - text: "The difference between Authorization and Authentication is fairly significant (even though the both sound very similar and are often the point of confusion."
-                    delay: 4000
-                  - text: "**Authentication** is making sure the user is who they say they are, and **Authorization** is making sure the identified used has the right permissions to do specific actions!"
-                    delay: 3000
-                  - text: "I hope that makes sense!"
-                    delay: 3000
-
+      then:
+        do:
+          - actionId: bot_message
+            params:
+              person: keen
+              messages:
+                - text: "Cool - here is a little from me!"
+                  delay: 3500
+                - text: "Authorization inside any system or app is the process of giving the right individuals the right roles, and permissions of what they can and cannot do."
+                  delay: 3500
+                - text: "Authorization, or AuthZ, is important as it gives you much more granular security inside your application."
+                  delay: 3500
+                - text: "The difference between Authorization and Authentication is fairly significant (even though the both sound very similar and are often the point of confusion."
+                  delay: 4000
+                - text: "**Authentication** is making sure the user is who they say they are, and **Authorization** is making sure the identified used has the right permissions to do specific actions!"
+                  delay: 3000
+                - text: "I hope that makes sense!"
+                  delay: 3000
