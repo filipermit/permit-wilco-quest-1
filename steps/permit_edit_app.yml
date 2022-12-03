@@ -1,0 +1,48 @@
+id: permit_edit_app
+learningObjectives:
+  - Create changes in the code
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: keen
+        messages:
+          - text: "I need you to tick all the actions and click save."
+            delay: 3000
+          - text: "When you do that, Permit generates the policy in real time and applies them to the enforcement points in the app!"
+            delay: 3000
+          - text: "Let me know when you have done it!"
+            delay: 3000
+trigger:
+  type: user_message
+  params:
+    person: keen
+  flowNode:
+    if:
+      conditions:
+        - conditionId: text_match_regex
+          params:
+            text: "${userMessageText}"
+            regex: done|finished|completed|complete|back|returned|hi|hello
+            flags: i
+      then:
+        do:
+          - actionId: bot_message
+            params:
+              person: keen
+              messages:
+                - text: "Fantastic! Now we just need to test for the permissions!"
+                  delay: 3000
+                - text: "If you will look at the Users Panel, you will see that a user for you has been generated and given the admin role."
+                  delay: 2000
+                - text: "Let's move onto the final step - and see Permit in action!"
+                  delay: 1300
+          - actionId: finish_step
+      else:
+        do:
+          - actionId: bot_message
+            params:
+              person: keen
+              messages:
+                - text: "It looks like you are still not finished with this step. Let me know when you complete it."
+                  delay: 2500
