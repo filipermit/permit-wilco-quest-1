@@ -42,14 +42,14 @@ trigger:
               messages:
                 - text: Hey again, do let me know when you are done checking out the Policy Panel.
                   delay: 2500
-startFlow:
-  do:
-    - actionId: bot_message
-      params: 
-        person: keen
-        messages: 
-          - text: "I need you to tick all the actions and click save."
-            delay: 3000
-          - text: "When you do that, Permit generates the policy in real time and applies them to the enforcement points in the app!"
-            delay: 3000
-    - actionId: finish_step
+# startFlow:
+#   do:
+#     - actionId: bot_message
+#       params:
+#         person: keen
+#         messages:
+#           - text: "I need you to tick all the actions and click save."
+#             delay: 3000
+#           - text: "When you do that, Permit generates the policy in real time and applies them to the enforcement points in the app!"
+#             delay: 3000
+#     - actionId: finish_step
