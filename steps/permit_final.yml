@@ -1,0 +1,57 @@
+id: permit_final
+learningObjectives:
+  - Run the code and check the permission!
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: keen
+        messages:
+          - text: "If you take a look in our repo, we have a file for you."
+            delay: 3000
+          - text: "It's a simple node.js script that check for a permission based on the policy configuration you have edited earlier."
+            delay: 3000
+          - text: "That script will talk to the PDP to check if the enforcement point is valid and can be executed for the particular user."
+            delay: 3000
+          - text: "This is the enforcement point. It takes a current user (**you**), the action being performed, and the resource on which the action is being executed."
+            delay: 1500
+          - text: "It looks like this:"
+            delay: 2000
+          - text: "`permit.check(<current_user>, "create", "document")`"
+            delay: 4000
+          - text: "Now I just need you to navigate to the project and run it. Once in the folder of the file, please type: `npm init -y && npm install express && npm install permitio@next`"
+            delay: 3000
+          - text: "Finally, run `node test.js`. This should run the script and type `localhost:4000` in the URL of your browser. You can do it, I believe in you!"
+            delay: 3000
+trigger:
+  type: user_message
+  params:
+    person: keen
+  flowNode:
+    if:
+      conditions:
+        - conditionId: action_success
+          params:
+            # We need to check the user got returned a success from the permission check.
+            name: run_script
+      then:
+        do:
+          - actionId: bot_message
+            params:
+              person: keen
+              messages:
+                - text: "Congratulations! You have successfully checked for your first permissions"
+                  delay: 3000
+                - text: "If you would like to learn more about Permit, please checkout [the Permit Homepage](https://permit.io) and the Permit [docs](https://docs.permit.io)."
+                  delay: 2000
+                - text: "Wishing you all the best in your continued Authorization adventures!"
+                  delay: 1300
+          - actionId: finish_step
+      else:
+        do:
+          - actionId: bot_message
+            params:
+              person: keen
+              messages:
+                - text: "Oops, it looks like something went wrong. Please reach out to our team on [slack](https://permit-io.slack.com/ssb/redirect) to get more help."
+                  delay: 2500

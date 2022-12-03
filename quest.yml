@@ -9,6 +9,8 @@ steps:
   - permit_get_api_key
   - permit_pdp_deployment
   - permit_configure_permissions
+  - permit_edit_app
+  - permit_final
 duration: 1
 skills:
   - frontend
