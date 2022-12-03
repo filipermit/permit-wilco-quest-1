@@ -17,7 +17,7 @@ startFlow:
             delay: 1500
           - text: "It looks like this:"
             delay: 2000
-          - text: "`permit.check(`current_user`, "create", "document")`"
+          - text: "`permit.check(<current_user>, 'create', 'document')`"
             delay: 4000
           - text: "Now I just need you to navigate to the project and run it. Once in the folder of the file, please type: `npm init -y && npm install express && npm install permitio@next`"
             delay: 3000
