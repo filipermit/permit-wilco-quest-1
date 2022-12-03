@@ -1,3 +1,7 @@
+# This is the step where we will need to populate some information for the user.
+# 1. Populate an admin role with a resource named "document". The action given to the resource need to be CRUD.
+# Create a new user, which will be the person doing this quest, with their email and assign the role of an Admin to them. Don't tick
+# the actions for the Admin role. The user will need to do that.
 id: permit_get_api_key
 learningObjectives:
   - Fetching the user Secret Key

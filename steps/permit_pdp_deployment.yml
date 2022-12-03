@@ -11,12 +11,14 @@ startFlow:
         messages:
           - text: "All looks good. You should now have access to the workspace for our permissions."
             delay: 3000
-          - text: "Before we move further, I will need you to download and run the pdp for me in the terminal."
+          - text: "Before we move further, I will need you to download and run the PDP for me in the terminal."
             delay: 3000
           - text: "Run the following two commands in the terminal:"
             delay: 3500
           - text: "`docker pull permitio/pdp-v2:latest`"
             delay: 3500
+          - text: "Followed by:"
+            delay: 3000
           - text: "`docker run -p 7766:7000 --env PDP_API_KEY=<YOUR_API_KEY> permitio/pdp-v2:latest`"
             delay: 3500
           - text: "Remember to replace the `<YOUR_API_KEY>` with your own."
@@ -33,7 +35,7 @@ trigger:
         - conditionId: text_match_regex
           params:
             text: "${userMessageText}"
-            regex: done|finished|completed|complete
+            regex: done|finished|completed|complete|running|working
             flags: i
       then:
         do:

@@ -1,0 +1,55 @@
+id: permit_configure_permissions
+learningObjectives:
+  - Configure the Permit permissions
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: keen
+        messages:
+          - text: "Before we run the app, we actually need to configure the permissions and alter the code in the repo."
+            delay: 3000
+          - text: "You should see that with the workspace invite, some data has been published for you. There should be an administrator role."
+            delay: 3000
+          - text: "Please check the Policy panel in the Permit App, and take a look. Let me know when you are back."
+            delay: 3500
+trigger:
+  type: user_message
+  params:
+    person: keen
+  flowNode:
+    if:
+      conditions:
+        - conditionId: text_match_regex
+          params:
+            text: "${userMessageText}"
+            regex: done|finished|completed|complete|back|returned|hi|hello
+            flags: i
+      then:
+        do:
+          - actionId: bot_message
+            params:
+              person: keen
+              messages:
+                - text: "Great! As you can see, all permissions are unchecked for the Admin role."
+                  delay: 1300
+          - actionId: finish_step
+      else:
+        do:
+          - actionId: bot_message
+            params:
+              person: keen
+              messages:
+                - text: Hey again, do let me know when you are done checking out the Policy Panel.
+                  delay: 2500
+startFlow:
+  do:
+    - actionId: bot_message
+      params: 
+        person: keen
+        messages: 
+          - text: "I need you to tick all the actions and click save."
+            delay: 3000
+          - text: "When you do that, Permit generates the policy in real time and applies them to the enforcement points in the app!"
+            delay: 3000
+    - actionId: finish_step

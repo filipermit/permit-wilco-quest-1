@@ -8,6 +8,7 @@ steps:
   - permit_authz_guide
   - permit_get_api_key
   - permit_pdp_deployment
+  - permit_configure_permissions
 duration: 1
 skills:
   - frontend
