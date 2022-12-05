@@ -8,7 +8,7 @@ hints:
   - Click on your profile picture inside the permit dashboard and copy they key.
 startFlow:
   do:
-    - actionId: bot_message
+    - actionId: permit_create_account
       params:
         person: keen
         messages:
