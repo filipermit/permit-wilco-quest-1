@@ -5,7 +5,7 @@ id: permit_get_api_key
 learningObjectives:
   - Fetching the user Secret Key
 hints:
-  - Click on your profile picture inside th permit dashboard and copy they key.
+  - Click on your profile picture inside the permit dashboard and copy they key.
 startFlow:
   do:
     - actionId: bot_message
