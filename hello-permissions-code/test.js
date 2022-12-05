@@ -11,7 +11,7 @@ const permit = new Permit({
 	pdp: "http://localhost:7766",
 	// your api key
 	token:
-		"THIS KEY NEEDS TO BE INSERTED PROGRAMATICALLY BY WHAT THE USER PROVIDED",
+		"This key needs to be replaced programatically BY the Key the user provided",
 });
 
 // You can open http://localhost:4000 to invoke this http
