@@ -6,11 +6,8 @@ level: beginner
 steps:
   - permit_setup
   - permit_authz_guide
-  - permit_get_api_key
-  - permit_pdp_deployment
   - permit_configure_permissions
   - permit_edit_app
-  - permit_final
 duration: 1
 skills:
   - frontend
@@ -19,3 +16,14 @@ skills:
   - communication
 questDependency: docker_localsetup
 slogan: Never Build Permissions Again
+
+messages:
+  questFinished:
+      person: keen
+      messages:
+        - text: "Congratulations! You have successfully checked for your first permissions"
+          delay: 3000
+        - text: "If you would like to learn more about Permit, please checkout [the Permit Homepage](https://permit.io) and the Permit [docs](https://docs.permit.io)."
+          delay: 2000
+        - text: "Wishing you all the best in your continued Authorization adventures!"
+          delay: 1300
