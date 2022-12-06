@@ -1,13 +1,15 @@
 id: permit_edit_app
 learningObjectives:
-  - Create changes in the code
+  - Craeting changes to role
+hints:
+- Make sure you saved your changes
 startFlow:
   do:
     - actionId: bot_message
       params:
         person: keen
         messages:
-          - text: "I need you to tick all the actions and click save."
+          - text: "I need you to tick write and read actions and click save."
             delay: 3000
           - text: "When you do that, Permit generates the policy in real time and applies them to the enforcement points in the app!"
             delay: 3000
@@ -20,29 +22,43 @@ trigger:
   flowNode:
     if:
       conditions:
-        - conditionId: text_match_regex
-          params:
-            text: "${userMessageText}"
-            regex: done|finished|completed|complete|back|returned|hi|hello
-            flags: i
+        - conditionId: is_user_message_text_ready_to_continue
       then:
         do:
-          - actionId: bot_message
+        - actionId: permit_api
+          name: get_admin_role
+          params:
+            method: "get"
+            url: "schema/${projectId}/dev/roles/admin"
+        if:
+          conditions:
+          - conditionId: is_truthy
             params:
-              person: keen
-              messages:
-                - text: "Fantastic! Now we just need to test for the permissions!"
-                  delay: 3000
-                - text: "If you will look at the Users Panel, you will see that a user for you has been generated and given the admin role."
-                  delay: 2000
-                - text: "Let's move onto the final step - and see Permit in action!"
-                  delay: 1300
-          - actionId: finish_step
+              value: ${outputs.get_admin_role.data?.permissions.length === 2}
+
+          then:
+            do:
+              - actionId: bot_message
+                params:
+                  person: keen
+                  messages:
+                    - text: "Fantastic! I see the admin role has now only 2 permissions!"
+                      delay: 3000
+              - actionId: finish_step
+
+          else:
+            do:
+              - actionId: bot_message
+                params:
+                  person: keen
+                  messages:
+                  - text: "Hmmmm... I see the admin role has only 2 permissions, can you try again?"
+                  delay: 0
       else:
         do:
           - actionId: bot_message
             params:
               person: keen
               messages:
-                - text: "It looks like you are still not finished with this step. Let me know when you complete it."
+                - text: "OK. Let me know when you complete it."
                   delay: 2500
