@@ -1,6 +1,10 @@
 id: permit_configure_permissions
 learningObjectives:
   - Configure the Permit permissions
+hints:
+  - Make sure that you are the Anythink-Market-XXX workspace.
+  - Make sure that you are in the 'Default" project and in the "Dev" environment
+  - Try refreshing the browser.
 startFlow:
   do:
     - actionId: permit_api

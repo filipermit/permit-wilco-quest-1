@@ -2,14 +2,14 @@ id: permit_edit_app
 learningObjectives:
   - Craeting changes to role
 hints:
-- Make sure you saved your changes
+  - Make sure you saved your changes
 startFlow:
   do:
     - actionId: bot_message
       params:
         person: keen
         messages:
-          - text: "I need you to tick write and read actions and click save."
+          - text: "I need you to tick update and read actions and click save."
             delay: 3000
           - text: "When you do that, Permit generates the policy in real time and applies them to the enforcement points in the app!"
             delay: 3000
@@ -25,16 +25,16 @@ trigger:
         - conditionId: is_user_message_text_ready_to_continue
       then:
         do:
-        - actionId: permit_api
-          name: get_admin_role
-          params:
-            method: "get"
-            url: "schema/${projectId}/dev/roles/admin"
+          - actionId: permit_api
+            name: get_admin_role
+            params:
+              method: "get"
+              url: "schema/${projectId}/dev/roles/admin"
         if:
           conditions:
-          - conditionId: is_truthy
-            params:
-              value: ${outputs.get_admin_role.data?.permissions.length === 2}
+            - conditionId: is_truthy
+              params:
+                value: ${outputs.get_admin_role.data?.permissions.length === 2}
 
           then:
             do:
@@ -52,7 +52,7 @@ trigger:
                 params:
                   person: keen
                   messages:
-                  - text: "Hmmmm... I see the admin role has only 2 permissions, can you try again?"
+                    - text: "Hmmmm... I see the admin role has only 2 permissions, can you try again?"
                   delay: 0
       else:
         do:
