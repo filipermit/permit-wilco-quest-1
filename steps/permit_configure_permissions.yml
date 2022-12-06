@@ -3,13 +3,37 @@ learningObjectives:
   - Configure the Permit permissions
 startFlow:
   do:
+    - actionId: permit_api
+      params:
+        method: "post"
+        url: "schema/${projectId}/dev/resources"
+        data: >
+          {
+            "key": "item",
+            "name": "Item",
+            "actions": {
+              "create": {},
+              "read": {},
+              "delete": {},
+              "update": {}
+            }
+          }
+    - actionId: permit_api
+      params:
+        method: "post"
+        url: "schema/${projectId}/dev/roles"
+        data: >
+          {
+            "key": "admin",
+            "name": "Admin"
+          }
     - actionId: bot_message
       params:
         person: keen
         messages:
           - text: "Before we run the app, we actually need to configure the permissions and alter the code in the repo."
             delay: 3000
-          - text: "You should see that with the workspace invite, some data has been published for you. There should be an administrator role."
+          - text: "You should see that with the workspace invite, some data has been published for you. There should be an Admin role."
             delay: 3000
           - text: "Please check the Policy panel in the Permit App, and take a look. Let me know when you are back."
             delay: 3500
