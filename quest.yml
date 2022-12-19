@@ -21,7 +21,7 @@ messages:
   questFinished:
       person: keen
       messages:
-        - text: "Congratulations! You have successfully checked for your first permissions"
+        - text: "Congratulations! You have successfully checked for your first permission."
           delay: 3000
         - text: "If you would like to learn more about Permit, please checkout [the Permit Homepage](https://permit.io) and the Permit [docs](https://docs.permit.io)."
           delay: 2000
